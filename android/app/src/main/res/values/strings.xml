@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">The-AfricanBasket</string>
+    <string name="facebook_app_id">569761838631307</string>
+    <string name="fb_login_protocol_scheme">fb569761838631307</string>
+           <string name="facebook_client_token">05c549b9f768d46a87ab4b474579f111</string>
+</resources>

@@ -1,0 +1,186 @@
+{
+  "project_info": {
+    "project_number": "391440289487",
+    "firebase_url": "https://the-africanbasket-351412-default-rtdb.firebaseio.com",
+    "project_id": "the-africanbasket-351412",
+    "storage_bucket": "the-africanbasket-351412.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391440289487:android:aa633e9fc7f97c2e3e31ba",
+        "android_client_info": {
+          "package_name": "com.boutiquesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391440289487-kj2bi2cg64nq75b7h6roph7qg63mt432.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.boutiquesapp",
+            "certificate_hash": "618a2dedc896e25cbc861da570b34d5aa8184c66"
+          }
+        },
+        {
+          "client_id": "391440289487-mkg4chgsghvv1vr014t4fcoa8dfj6et1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.boutiquesapp",
+            "certificate_hash": "59216b9cddea4a671129525d0667412fa13c5170"
+          }
+        },
+        {
+          "client_id": "391440289487-u58t4ardq4lhf8slvo9b3t3s33dbddb7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.boutiquesapp",
+            "certificate_hash": "7a50b6f51974cbb1f16c14da5842cb18072d3af2"
+          }
+        },
+        {
+          "client_id": "391440289487-2bdldsgfpca17485k1vnpdnhifevjaun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBs-d3KUt9WDSaZqqQ1wDEwSv-5EfkzIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391440289487-2bdldsgfpca17485k1vnpdnhifevjaun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "391440289487-6kahad9i3vf80ed0v78ejel5n9ian4sf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.theafricanbasketpartners.rn",
+                "app_store_id": "1641405911"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391440289487:android:5bbdbdbb253b63d73e31ba",
+        "android_client_info": {
+          "package_name": "com.theafricanbasket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391440289487-19n2gc80jhbq7gk4ai77fvjt49das13i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theafricanbasket",
+            "certificate_hash": "618a2dedc896e25cbc861da570b34d5aa8184c66"
+          }
+        },
+        {
+          "client_id": "391440289487-ibhpauoe3b13jeaomsc3lro7u9cc5d2l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theafricanbasket",
+            "certificate_hash": "59216b9cddea4a671129525d0667412fa13c5170"
+          }
+        },
+        {
+          "client_id": "391440289487-tkrvj4udlri8s51pes8abh4e1l01nre1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theafricanbasket",
+            "certificate_hash": "7a50b6f51974cbb1f16c14da5842cb18072d3af2"
+          }
+        },
+        {
+          "client_id": "391440289487-2bdldsgfpca17485k1vnpdnhifevjaun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBs-d3KUt9WDSaZqqQ1wDEwSv-5EfkzIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391440289487-2bdldsgfpca17485k1vnpdnhifevjaun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "391440289487-6kahad9i3vf80ed0v78ejel5n9ian4sf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.theafricanbasketpartners.rn",
+                "app_store_id": "1641405911"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391440289487:android:656d32f6a3b3c3233e31ba",
+        "android_client_info": {
+          "package_name": "com.theafricanbasketdrivers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391440289487-fuj5cpo5e6m8r3bu865j4kr18aj43hen.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theafricanbasketdrivers",
+            "certificate_hash": "618a2dedc896e25cbc861da570b34d5aa8184c66"
+          }
+        },
+        {
+          "client_id": "391440289487-khb7765b1irh449gj8f0ri4iugs04vcq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theafricanbasketdrivers",
+            "certificate_hash": "7a50b6f51974cbb1f16c14da5842cb18072d3af2"
+          }
+        },
+        {
+          "client_id": "391440289487-2bdldsgfpca17485k1vnpdnhifevjaun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBs-d3KUt9WDSaZqqQ1wDEwSv-5EfkzIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391440289487-2bdldsgfpca17485k1vnpdnhifevjaun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "391440289487-6kahad9i3vf80ed0v78ejel5n9ian4sf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.theafricanbasketpartners.rn",
+                "app_store_id": "1641405911"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
