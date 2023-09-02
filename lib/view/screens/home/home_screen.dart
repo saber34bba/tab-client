@@ -330,10 +330,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                    
+                    print("-----muy${categoryController.categoryList[index].name.toLowerCase()}");
                       if(categoryController.categoryList[index].name.toLowerCase()!="subscriptions"
                       &&  categoryController.categoryList[index].id!=4
-                      )
+                      && categoryController.categoryList[index].name.toLowerCase()!="abonnements")
                       return Container();else
                       return 
                       Padding(
@@ -342,7 +342,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                             onTap: (){
-                             print("----ddd--w${categoryController.categoryList[index].id}");
+                             print("----ddd--w${categoryController.categoryList[index].name}");
 
                            //Provider.of<SubscriptionsModelView>(context,listen: false).getSubscriptions();
                            Navigator.push( context,MaterialPageRoute<void>( 

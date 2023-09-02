@@ -47,16 +47,20 @@ class TraiteurButtonView extends StatelessWidget {
       child: InkWell(
         onTap: web ? ()=> dialog(context) : null,
         child:  Row(children: [
-        Image.asset(Images.ic_launcher, height: 64, width: 64, fit: BoxFit.cover),
-        SizedBox(width: Dimensions.PADDING_SIZE_SMALL),
-        Expanded(
+
+     Expanded(child: CustomButton(buttonText: 'service_traiteur'.tr, height: 50, onPressed: ()=>dialog(context)))
+           //       Expanded(child: CustomButton(buttonText: 'service_traiteur'.tr, width: 150, height: 50, onPressed: ()=>dialog(context))),
+
+     // Image.asset(Images.ic_launcher, height: 64, width: 64, fit: BoxFit.cover),
+        //SizedBox(width: Dimensions.PADDING_SIZE_SMALL),
+      /*web? Expanded(
           child: !web ? SizedBox.shrink() : Text(
             'service_traiteur'.tr, textAlign: TextAlign.start,
             style: robotoMedium.copyWith(fontSize: Dimensions.fontSizeDefault),
           ),
-        ),
-        if(!web)
-        CustomButton(buttonText: 'service_traiteur'.tr, width: 150, height: 50, onPressed: ()=>dialog(context)),
+        ):Container(),
+        if(!web)*/
+    //    Expanded(child: CustomButton(buttonText: 'service_traiteur'.tr, width: 150, height: 50, onPressed: ()=>dialog(context))),
 
       ]),),
     );

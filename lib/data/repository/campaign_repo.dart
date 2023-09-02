@@ -10,6 +10,7 @@ class CampaignRepo {
   Future<Response> getBasicCampaignList() async {
     return await apiClient.getData(AppConstants.BASIC_CAMPAIGN_URI);
   }
+  
 
   Future<Response> getCampaignDetails(String campaignID) async {
     return await apiClient.getData('${AppConstants.BASIC_CAMPAIGN_DETAILS_URI}$campaignID');

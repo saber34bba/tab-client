@@ -2,6 +2,7 @@ import 'package:efood_multivendor/controller/location_controller.dart';
 import 'package:efood_multivendor/controller/order_controller.dart';
 import 'package:efood_multivendor/controller/restaurant_controller.dart';
 import 'package:efood_multivendor/controller/splash_controller.dart';
+import 'package:efood_multivendor/data/api/api_client.dart';
 import 'package:efood_multivendor/data/model/response/address_model.dart';
 import 'package:efood_multivendor/helper/date_converter.dart';
 import 'package:efood_multivendor/helper/price_converter.dart';
@@ -118,7 +119,11 @@ class _SubscriptionCart extends State<SubscriptionCart> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        subscriptionsModelView.subscriptionModel.name_en,
+                         Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                        subscriptionsModelView.subscriptionModel.name_ar:
+                           Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                        subscriptionsModelView.subscriptionModel.name_en:
+                         subscriptionsModelView.subscriptionModel.name_fr,
                         style: robotoMedium.copyWith(
                             fontSize: Dimensions.fontSizeLarge),
                       ),
@@ -192,8 +197,27 @@ class _SubscriptionCart extends State<SubscriptionCart> {
                 Text('description'.tr, style: robotoMedium),
                 SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_SMALL),
                 Text(
-                    subscriptionsModelView
-                        .subscriptionlist[subscriptionsModelView.index].des_en,
+                    Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                                          subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_ar.length>100?
+                                      subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_ar.substring(0,100)+"...":
+                                        subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_ar: 
+                                           Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                                         subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_en.length>100?
+                                        subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_en.substring(0,100)+"...":
+                                      subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_en:
+                                          subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_fr.length>100?
+                                       subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_fr.substring(0,100)+"...":
+                                     subscriptionsModelView
+                        .subscriptionlist[subscriptionsModelView.index].des_fr
+                   ,
                     style: 
                     ResponsiveHelper.isDesktop(context)?
                     robotoRegular.copyWith(fontSize: 14):

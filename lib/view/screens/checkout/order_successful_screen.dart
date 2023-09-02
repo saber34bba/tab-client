@@ -38,6 +38,7 @@ class _OrderSuccessfulScreenState extends State<OrderSuccessfulScreen> {
       backgroundColor: Theme.of(context).cardColor,
       appBar: ResponsiveHelper.isDesktop(context) ? WebMenuBar() : null,
       body: GetBuilder<OrderController>(builder: (orderController) {
+         
         double total = 0;
         bool success = true;
         if(orderController.trackModel != null) {

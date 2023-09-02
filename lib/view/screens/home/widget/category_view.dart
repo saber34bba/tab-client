@@ -36,7 +36,8 @@ class CategoryView extends StatelessWidget {
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      if(categoryController.categoryList[index].name=="Subscriptions")
+                      if(categoryController.categoryList[index].name.toLowerCase()=="subscriptions" ||
+                    categoryController.categoryList[index].name.toLowerCase()=="abonnements"  )
                       return Container();else
                       return Padding(
                         padding: EdgeInsets.symmetric(horizontal: 1),

@@ -1,6 +1,7 @@
 import 'package:efood_multivendor/controller/order_controller.dart';
 import 'package:efood_multivendor/controller/splash_controller.dart';
 import 'package:efood_multivendor/controller/theme_controller.dart';
+import 'package:efood_multivendor/data/api/api_client.dart';
 import 'package:efood_multivendor/data/model/response/config_model.dart';
 import 'package:efood_multivendor/helper/responsive_helper.dart';
 import 'package:efood_multivendor/util/dimensions.dart';
@@ -78,7 +79,8 @@ SubscriptionPresenter subscriptionPresenter;
                 
                 
                 widget.showAppbar? 
-                subscriptionsModelView.subscriptionlist.isEmpty?
+                subscriptionsModelView.loading  &&
+                !subscriptionsModelView.subscriptionlist.isEmpty?
                   SingleChildScrollView(
                       child: Column(children: [
                         SizedBox(height:30),
@@ -184,7 +186,12 @@ Widget mobileSubscriptionList(){
                                       Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                        Text(subscriptionModel.name_en, style: robotoMedium.copyWith(
+                                        Text(
+                                          Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                                          subscriptionModel.name_ar: 
+                                           Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                                          subscriptionModel.name_en:
+                                         subscriptionModel.name_fr  , style: robotoMedium.copyWith(
                                         fontSize: Dimensions.fontSizeSmall),), 
                                         SizedBox(height: 5,),
                                         subscriptionModel.sizeList.isNotEmpty?
@@ -253,9 +260,17 @@ Widget mobileSubscriptionList(){
                                         Container(
                                         width: width*0.5,
                                         child: Text(
-                                        subscriptionModel.des_en.length>100?
+                                            Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                                         subscriptionModel.des_ar.length>100?
+                                        subscriptionModel.des_ar.substring(0,100)+"...":
+                                        subscriptionModel.des_ar: 
+                                           Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                                         subscriptionModel.des_en.length>100?
                                         subscriptionModel.des_en.substring(0,100)+"...":
-                                        subscriptionModel.des_en,
+                                        subscriptionModel.des_en:
+                                          subscriptionModel.des_fr.length>100?
+                                        subscriptionModel.des_fr.substring(0,100)+"...":
+                                        subscriptionModel.des_fr,
                                         overflow: TextOverflow.clip,
                                        
                                         style: robotoMedium.copyWith(
@@ -339,7 +354,13 @@ Widget desktiopSubscriotionlist(){
                                       Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                        Text(subscriptionModel.name_en, style: robotoMedium.copyWith(
+                                        Text(
+                                          
+                                      Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                                          subscriptionModel.name_ar: 
+                                           Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                                          subscriptionModel.name_en:
+                                         subscriptionModel.name_fr     , style: robotoMedium.copyWith(
                                         fontSize: Dimensions.fontSizeSmall),), 
                                         SizedBox(height: 5,),
                                         subscriptionModel.sizeList.isNotEmpty?
@@ -408,9 +429,18 @@ Widget desktiopSubscriotionlist(){
                                         Container(
                                         width: width*0.5,
                                         child: Text(
-                                        subscriptionModel.des_en.length>100?
+                                          Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                                         subscriptionModel.des_ar.length>100?
+                                        subscriptionModel.des_ar.substring(0,100)+"...":
+                                        subscriptionModel.des_ar: 
+                                           Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                                         subscriptionModel.des_en.length>100?
                                         subscriptionModel.des_en.substring(0,100)+"...":
-                                        subscriptionModel.des_en,
+                                        subscriptionModel.des_en:
+                                          subscriptionModel.des_fr.length>100?
+                                        subscriptionModel.des_fr.substring(0,100)+"...":
+                                        subscriptionModel.des_fr
+                                        ,
                                         overflow: TextOverflow.clip,
                                        
                                         style: robotoMedium.copyWith(
@@ -492,7 +522,12 @@ Widget my_subscriptionsListView(){
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                      Text(subscriptionModel.name_en, style: robotoMedium.copyWith(
+                      Text(
+                        Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                                          subscriptionModel.name_ar: 
+                                           Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                                          subscriptionModel.name_en:
+                                         subscriptionModel.name_fr , style: robotoMedium.copyWith(
                       fontSize: Dimensions.fontSizeSmall),), 
                       SizedBox(height: 5,),
                       subscriptionModel.sizeList.isNotEmpty?
@@ -504,7 +539,17 @@ Widget my_subscriptionsListView(){
                       Container(
                       width: width*0.4,
                       child: Text(
-                      subscriptionModel.des_en,
+                          Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                                         subscriptionModel.des_ar.length>100?
+                                        subscriptionModel.des_ar.substring(0,100)+"...":
+                                        subscriptionModel.des_ar: 
+                                           Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                                         subscriptionModel.des_en.length>100?
+                                        subscriptionModel.des_en.substring(0,100)+"...":
+                                        subscriptionModel.des_en:
+                                          subscriptionModel.des_fr.length>100?
+                                        subscriptionModel.des_fr.substring(0,100)+"...":
+                                        subscriptionModel.des_fr,
                       overflow: TextOverflow.clip,
                        textAlign: TextAlign.justify,
                       style: robotoMedium.copyWith(

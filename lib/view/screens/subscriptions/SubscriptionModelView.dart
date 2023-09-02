@@ -119,6 +119,8 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
         showCustomSnackBar("please try again");
       }
     }else{
+      loading=false;
+      notifyListeners();
        showCustomSnackBar(
                                                       'you_are_not_logged_in'
                                                           .tr);
@@ -139,10 +141,11 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
 
     var _data =
         await http.get(_url, headers: Get.find<ApiClient>().getHeader());
-
+      
     if (_data.statusCode == 200 || _data.statusCode == 201) {
       List<dynamic> responseData = json.decode(_data.body);
       if (responseData.length > 0) {
+          
         for (int i = 0; i < responseData.length; i++) {
          
           SubscriptionModel subscriptionModel =
