@@ -1,7 +1,7 @@
 name: efood_multivendor
 description: A new Flutter application.
 publish_to: 'none' #
-version: 2.0.9+213
+version: 2.0.9+214
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
