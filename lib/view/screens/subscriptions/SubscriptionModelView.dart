@@ -37,7 +37,7 @@ class SubscriptionsModelView extends ChangeNotifier {
 
     var _data =
         await http.get(_url, headers: Get.find<ApiClient>().getHeader());
-     print("---data ${_data.body}");
+     
     if (_data.statusCode == 200 || _data.statusCode == 201) {
       List<dynamic> responseData = json.decode(_data.body);
 

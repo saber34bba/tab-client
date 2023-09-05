@@ -7,7 +7,7 @@ class AppConstants {
 
   static const String BASE_URL = 'https://the-africanbasket.com';
   // static const String BASE_URL = 'https://localhost/AdminPanel';
-  static const String CATEGORY_URI = '/api/v1/categories';
+  static const String  CATEGORY_URI = '/api/v1/categories';
   static const String BANNER_URI = '/api/v1/banners';
   static const String RESTAURANT_PRODUCT_URI = '/api/v1/products/latest';
   static const String POPULAR_PRODUCT_URI = '/api/v1/products/popular';

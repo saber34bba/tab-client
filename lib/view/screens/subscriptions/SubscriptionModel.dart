@@ -65,7 +65,6 @@ int ordered=0;
 
   }
 
-print("------mmmmmm $map");
  
     return SubscriptionModel(
       id: map["id"],
@@ -74,7 +73,7 @@ print("------mmmmmm $map");
        name_ar: map["name_ar"],
       name_en: map["name_en"],
       name_fr: map["name_fr"],
-      des_ar: map["description_er"],
+      des_ar: map["description_ar"],
       des_en: map["description_en"],
       des_fr: map["description_fr"],
       status: _status,

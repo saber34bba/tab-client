@@ -330,10 +330,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                    print("-----muy${categoryController.categoryList[index].name.toLowerCase()}");
+                    
                       if(categoryController.categoryList[index].name.toLowerCase()!="subscriptions"
-                      &&  categoryController.categoryList[index].id!=4
-                      && categoryController.categoryList[index].name.toLowerCase()!="abonnements")
+                      //&&  categoryController.categoryList[index].id!=4
+                      || categoryController.categoryList[index].name.toLowerCase()!="abonnements"
+                       || categoryController.categoryList[index].name.toLowerCase()!="الاشتراكات"
+                      )
                       return Container();else
                       return 
                       Padding(

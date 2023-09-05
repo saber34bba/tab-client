@@ -260,6 +260,7 @@ Widget mobileSubscriptionList(){
                                         Container(
                                         width: width*0.5,
                                         child: Text(
+                                          
                                             Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
                                          subscriptionModel.des_ar.length>100?
                                         subscriptionModel.des_ar.substring(0,100)+"...":
