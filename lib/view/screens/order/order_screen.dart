@@ -62,7 +62,7 @@ class _OrderScreenState extends State<OrderScreen> with TickerProviderStateMixin
                   tabs: [
                     Tab(text: 'running'.tr),
                     Tab(text: 'history'.tr),
-                     Tab(text: 'abonnement'.tr),
+                     Tab(text: 'subscription'.tr),
                   ],
                 ),
               ),

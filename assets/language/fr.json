@@ -240,6 +240,8 @@
   "paid": "Payé à",
   "_paid": "Payé",
   "unpaid": "Non payé",
+  "date & hours":"date et heure",
+  "time":"temps",
   "pending": "En attente",
   "accepted": "Accepté",
   "processing": "En cours de traitement",

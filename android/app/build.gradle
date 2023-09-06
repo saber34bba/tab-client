@@ -47,7 +47,7 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.theafricanbasket"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33 //31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true

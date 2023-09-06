@@ -10,6 +10,7 @@ import 'package:efood_multivendor/controller/restaurant_controller.dart';
 import 'package:efood_multivendor/controller/splash_controller.dart';
 import 'package:efood_multivendor/controller/user_controller.dart';
 import 'package:efood_multivendor/controller/infos_controller.dart';
+import 'package:efood_multivendor/data/api/api_client.dart';
 import 'package:efood_multivendor/data/model/response/config_model.dart';
 import 'package:efood_multivendor/helper/responsive_helper.dart';
 import 'package:efood_multivendor/helper/route_helper.dart';
@@ -330,13 +331,43 @@ class _HomeScreenState extends State<HomeScreen> {
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                    
-                      if(categoryController.categoryList[index].name.toLowerCase()!="subscriptions"
-                      //&&  categoryController.categoryList[index].id!=4
-                      || categoryController.categoryList[index].name.toLowerCase()!="abonnements"
-                       || categoryController.categoryList[index].name.toLowerCase()!="الاشتراكات"
+                      
+                    print("------${ categoryController.categoryList[index].name.substring(0,4).toLowerCase()} ${categoryController.categoryList[index].id}");
+                     
+                      /*if(
+                         Get.find<ApiClient>().getHeader()["X-localization"]=="fr"
                       )
-                      return Container();else
+                      {
+                        print("----frr-");
+                        print(categoryController.categoryList[index].name.substring(0,4).toLowerCase()!="abon");
+                        if(categoryController.categoryList[index].name.substring(0,4).toLowerCase()!="abon")
+                        return Container();
+
+                      }else{
+                       if(
+                         Get.find<ApiClient>().getHeader()["X-localization"]=="en"
+                      )
+                      {
+                        print("----en");
+                        if(categoryController.categoryList[index].name.substring(0,4).toLowerCase()!="subs")
+                        return Container();
+
+                      }else{
+                        if( categoryController.categoryList[index].name.substring(0,5).toLowerCase()!="الاشت"){
+                          return Container();
+                        }
+                      }
+                      }*/
+                      
+                         /*Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                         categoryController.categoryList[index].name.substring(0,4).toLowerCase()!="subs":
+                         categoryController.categoryList[index].name.substring(0,5).toLowerCase()!="الاشت"
+                      )
+                      return Container()
+                      */
+                      if(
+                     categoryController.categoryList[index].id!=4)
+                     return Container(); else
                       return 
                       Padding(
                         padding:EdgeInsets.only(top:10,right: 10),
@@ -344,7 +375,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                             onTap: (){
-                             print("----ddd--w${categoryController.categoryList[index].name}");
 
                            //Provider.of<SubscriptionsModelView>(context,listen: false).getSubscriptions();
                            Navigator.push( context,MaterialPageRoute<void>( 

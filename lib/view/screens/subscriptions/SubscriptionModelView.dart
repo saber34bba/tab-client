@@ -37,7 +37,7 @@ class SubscriptionsModelView extends ChangeNotifier {
 
     var _data =
         await http.get(_url, headers: Get.find<ApiClient>().getHeader());
-     
+    
     if (_data.statusCode == 200 || _data.statusCode == 201) {
       List<dynamic> responseData = json.decode(_data.body);
 
@@ -61,20 +61,19 @@ class SubscriptionsModelView extends ChangeNotifier {
                _total=_total+int.parse(responseData[i]["food"][j]["qte"].toString());
               Map<String, dynamic> _json;
 
-              responseData[i]["food"][j]["food_detail"]['category_ids'] =
+              /*responseData[i]["food"][j]["food_detail"]['category_ids'] =
                   json.decode(responseData[i]["food"][j]["food_detail"]
-                      ['category_ids']);
+                      ['category_ids']);*/
 responseData[i]["food"][j]["food_detail"]['category_ids']=[];
-              responseData[i]["food"][j]["food_detail"]['variations'] =
+
+              /*responseData[i]["food"][j]["food_detail"]['variations'] =
                   json.decode(
-                      responseData[i]["food"][j]["food_detail"]['variations']);
+                      responseData[i]["food"][j]["food_detail"]['variations']);*/
 responseData[i]["food"][j]["food_detail"]['variations']=[];
-              /*responseData[i]["food"][j]["food_detail"]['add_ons'] = json
-                  .decode(responseData[i]["food"][j]["food_detail"]['add_ons']);
-              */responseData[i]["food"][j]["food_detail"]['add_ons']=[];
-              responseData[i]["food"][j]["food_detail"]['choice_options'] =
+              responseData[i]["food"][j]["food_detail"]['add_ons']=[];
+              /*responseData[i]["food"][j]["food_detail"]['choice_options'] =
                   json.decode(responseData[i]["food"][j]["food_detail"]
-                      ['choice_options']);
+                      ['choice_options']);*/
 responseData[i]["food"][j]["food_detail"]['choice_options']=[];
 
               Product productModel =
@@ -116,7 +115,7 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
       } else {
         loading = false;
         notifyListeners();
-        showCustomSnackBar("please try again");
+       // showCustomSnackBar("please try again");
       }
     }else{
       loading=false;
@@ -141,8 +140,8 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
 
     var _data =
         await http.get(_url, headers: Get.find<ApiClient>().getHeader());
-      
-    if (_data.statusCode == 200 || _data.statusCode == 201) {
+   
+         if (_data.statusCode == 200 || _data.statusCode == 201) {
       List<dynamic> responseData = json.decode(_data.body);
       if (responseData.length > 0) {
           
@@ -190,7 +189,7 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
     } else {
       loading = false;
       notifyListeners();
-      showCustomSnackBar("please try again");
+      //showCustomSnackBar("please try again");
     }
   }
 

@@ -203,7 +203,7 @@ Widget mobileSubscriptionList(){
                       width: width*0.5,
                       child: Row(children: [
                         Text(
-                      "prix".tr,
+                      "price".tr,
                       overflow: TextOverflow.clip,
                       style: robotoMedium.copyWith(
                       color: Colors.grey,
@@ -371,9 +371,39 @@ Widget desktiopSubscriotionlist(){
                                        
                         Container(
                       width: width*0.5,
-                      child: Row(children: [
+                      child:
+                      
+                       Get.find<ApiClient>().getHeader()["X-localization"]=="fr"||
+                        Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
+                      
+                       Row(children: [
                         Text(
-                      "prix".tr,
+                      "price".tr,
+                      overflow: TextOverflow.clip,
+                      style: robotoMedium.copyWith(
+                      color: Colors.grey,
+                      fontSize: Dimensions.fontSizeSmall),
+                      ),
+                        SizedBox(width: 5,),
+                        Text(
+                      subscriptionModel.prix,
+                      overflow: TextOverflow.clip,
+                      style: robotoMedium.copyWith(
+                      color: Colors.grey,
+                      fontSize: Dimensions.fontSizeSmall),
+                      ),
+                      SizedBox(width: 2,),
+                         Text(
+                       Get.find<SplashController>().configModel.currencySymbol,
+                      overflow: TextOverflow.clip,
+                      style: robotoMedium.copyWith(
+                      color: Colors.grey,
+                      fontSize: Dimensions.fontSizeSmall),
+                      ),
+                      ],):
+                       Row(children: [
+                        Text(
+                      "price".tr,
                       overflow: TextOverflow.clip,
                       style: robotoMedium.copyWith(
                       color: Colors.grey,
@@ -396,6 +426,7 @@ Widget desktiopSubscriotionlist(){
                       fontSize: Dimensions.fontSizeSmall),
                       ),
                       ],)
+
                       ),                  
                        SizedBox(height: 5),
                        Container(
@@ -495,7 +526,8 @@ Widget my_subscriptionsListView(){
           ==index?20:0,
           top: index==0?30:0
           ),
-          child: Ink(   
+          child: Ink(  
+       
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color:Colors.white),              
           width:width ,
           padding: EdgeInsets.all(10),
@@ -577,8 +609,34 @@ Widget my_subscriptionsListView(){
                       color: Colors.grey,
                       fontSize: Dimensions.fontSizeSmall),
                       ),
-                      ],)
+                      ],),
+                      
                       ),
+                       ResponsiveHelper.isDesktop(context)?
+                       Container():
+                      Padding(
+                        padding: EdgeInsets.only(top:10),
+                        child: Container(
+                          
+                             
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: subscriptionModel.status==1
+                                  ?
+                                  Colors.green.withOpacity(1):
+                                  subscriptionModel.isordered?
+                                  Theme.of(context).primaryColor:
+                                  Colors.red
+                                 ),
+                                           child: Text(subscriptionModel.status==1?"_paid".tr:
+                                           subscriptionModel.status==2?"declined".tr:
+                                           subscriptionModel.isordered?"ordered":
+                                           "unpaid".tr,style: robotoRegular.copyWith(
+                        color: Colors.white
+                                           ),textAlign: TextAlign.center,),
+                                         ),
+                      )
                     ],),
                     SizedBox(width: 10,),
 ResponsiveHelper.isDesktop(context)?
@@ -607,27 +665,8 @@ Expanded(child: Container()):Container(),
                                            ),
              )
           :                   
-          Expanded(
-            child: Container(
-                                     
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: subscriptionModel.status==1
-              ?
-              Colors.green.withOpacity(1):
-              subscriptionModel.isordered?
-              Theme.of(context).primaryColor:
-              Colors.red
-                                 ),
-                       child: Text(subscriptionModel.status==1?"_paid".tr:
-                       subscriptionModel.status==2?"declined".tr:
-                       subscriptionModel.isordered?"ordered":
-                       "unpaid".tr,style: robotoRegular.copyWith(
-                        color: Colors.white
-                       ),textAlign: TextAlign.center,),
-                                         ),
-          )
+          Container()
+                                      
             ]),
           ),
           SizedBox(height: 10,),

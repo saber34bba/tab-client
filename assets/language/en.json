@@ -243,6 +243,8 @@
   "paid": "Paid",
   "_paid": "Paid",
   "unpaid": "Unpaid",
+  "date & hours":"date and hours",
+  "time":"time",
   "pending": "Pending",
   "accepted": "Accepted",
   "processing": "Processing",

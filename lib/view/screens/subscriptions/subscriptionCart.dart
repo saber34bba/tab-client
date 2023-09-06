@@ -133,7 +133,7 @@ class _SubscriptionCart extends State<SubscriptionCart> {
                           child: Row(
                             children: [
                               Text(
-                                "prix".tr,
+                                "price".tr,
                                 overflow: TextOverflow.clip,
                                 style: robotoMedium.copyWith(
                                     color: Theme.of(context).primaryColor,
@@ -898,7 +898,7 @@ Widget foodListWidget(){
                           border: Border.all(
                               color: Theme.of(context).disabledColor)),
                       child: DropdownButton<int>(
-                        hint: Text("time"),
+                        hint: Text("time".tr),
                         value: subscriptionPresenter
                                 .subscriptionSchedule[j].timeList.isEmpty
                             ? null
@@ -954,9 +954,12 @@ Widget foodListWidget(){
                   children: [
                     Container(
                       constraints: BoxConstraints(maxWidth: width / 2),
-                      child: Row(children: [
+                      child:   Get.find<ApiClient>().getHeader()["X-localization"]=="fr"||
+                              Get.find<ApiClient>().getHeader()["X-localization"]=="en"? Row(children: [
                         Expanded(
-                            child: Row(children: [
+                            child:
+                            
+                           Row(children: [
                           Flexible(
                             child: Text(
                               subscriptionsModelView
@@ -988,12 +991,54 @@ Widget foodListWidget(){
                             ],
                           )
                         ]))
-                      ]),
+                      ]):
+                       Row(children: [
+                        Expanded(
+                            child:
+                            
+                             Row(children: [
+                          Flexible(
+                            child: Text(
+                              subscriptionsModelView
+                                  .my_subscriptionlist[
+                                      subscriptionsModelView.index]
+                                  .productListModel[i]
+                                  .name,
+                              overflow: TextOverflow.clip,
+                            ),
+                          ),
+                          SizedBox(width: 5),
+                          Row(
+                            children: [
+                              Text(
+                                "remaining quantity".tr,
+                                style: robotoBold.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    color: Theme.of(context).disabledColor),
+                                overflow: TextOverflow.clip,
+                              ),
+                              Text(":",  style: robotoBold.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    color: Theme.of(context).disabledColor),
+                                overflow: TextOverflow.clip,),
+                              SizedBox(width:10),
+                              Text(
+                                subscriptionPresenter.getQuantity(
+                                    context, i, j),
+                                style: robotoBold.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    color: Theme.of(context).disabledColor),
+                                overflow: TextOverflow.clip,
+                              ),
+                            ],
+                          )
+                        ]))
+                      ])
                     ),
                     SizedBox(width: 16),
                     Expanded(
                       child: MyTextField(
-                        hintText: 'qte'.tr,
+                        hintText: 'quantity'.tr,
                         inputType: TextInputType.number,
                         inputAction: TextInputAction.done,
                         controller: subscriptionPresenter
