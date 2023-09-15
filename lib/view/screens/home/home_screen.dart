@@ -8,6 +8,7 @@ import 'package:efood_multivendor/controller/order_controller.dart';
 import 'package:efood_multivendor/controller/product_controller.dart';
 import 'package:efood_multivendor/controller/restaurant_controller.dart';
 import 'package:efood_multivendor/controller/splash_controller.dart';
+import 'package:efood_multivendor/controller/theme_controller.dart';
 import 'package:efood_multivendor/controller/user_controller.dart';
 import 'package:efood_multivendor/controller/infos_controller.dart';
 import 'package:efood_multivendor/data/api/api_client.dart';
@@ -16,6 +17,7 @@ import 'package:efood_multivendor/helper/responsive_helper.dart';
 import 'package:efood_multivendor/helper/route_helper.dart';
 import 'package:efood_multivendor/util/dimensions.dart';
 import 'package:efood_multivendor/util/styles.dart';
+import 'package:efood_multivendor/view/base/custom_button.dart';
 import 'package:efood_multivendor/view/base/custom_image.dart';
 import 'package:efood_multivendor/view/base/paginated_list_view.dart';
 import 'package:efood_multivendor/view/base/product_view.dart';
@@ -318,10 +320,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                   BannerView(),
                                   
                                   TraiteurButtonView(),
-                                  GetBuilder<CategoryController>(builder: (categoryController){
+                                  SizedBox(height: 15,),
+                                Container(
+      width: false ? 250 : Dimensions.WEB_MAX_WIDTH,
+      height: 90,
+      margin: EdgeInsets.only(left: Dimensions.PADDING_SIZE_SMALL, right: Dimensions.PADDING_SIZE_SMALL, top: Dimensions.PADDING_SIZE_DEFAULT, bottom: false ?  Dimensions.PADDING_SIZE_DEFAULT : 0),
+      padding: const EdgeInsets.all(Dimensions.PADDING_SIZE_LARGE),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(Dimensions.RADIUS_SMALL),
+        boxShadow: [
+          BoxShadow(
+          color: Colors.grey[Get.find<ThemeController>().darkTheme ? 700 : 300],
+          blurRadius: 5, spreadRadius: 1,
+        )],
+      ),
+      child: InkWell(
+        child:  Row(children: [
+
+     Expanded(child: CustomButton(buttonText: 'service_traiteur'.tr, height: 50, onPressed: (){
+       Navigator.push( context,MaterialPageRoute<void>( 
+                           builder: (BuildContext context) => Subscription_view(showAppbar: true), ),);
+     }))
+
+      ]),),
+    ),
+                                /*  GetBuilder<CategoryController>(builder: (categoryController){
                                      return (categoryController.categoryList != null && categoryController.categoryList.length == 0) 
                                      ?Container():
-                                    
+                                   
                  SizedBox(
                   height: 120,
                   child: categoryController.categoryList != null ? ListView.builder(
@@ -333,38 +360,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       
                     print("------${ categoryController.categoryList[index].name.substring(0,4).toLowerCase()} ${categoryController.categoryList[index].id}");
-                     
-                      /*if(
-                         Get.find<ApiClient>().getHeader()["X-localization"]=="fr"
-                      )
-                      {
-                        print("----frr-");
-                        print(categoryController.categoryList[index].name.substring(0,4).toLowerCase()!="abon");
-                        if(categoryController.categoryList[index].name.substring(0,4).toLowerCase()!="abon")
-                        return Container();
-
-                      }else{
-                       if(
-                         Get.find<ApiClient>().getHeader()["X-localization"]=="en"
-                      )
-                      {
-                        print("----en");
-                        if(categoryController.categoryList[index].name.substring(0,4).toLowerCase()!="subs")
-                        return Container();
-
-                      }else{
-                        if( categoryController.categoryList[index].name.substring(0,5).toLowerCase()!="الاشت"){
-                          return Container();
-                        }
-                      }
-                      }*/
-                      
-                         /*Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
-                         categoryController.categoryList[index].name.substring(0,4).toLowerCase()!="subs":
-                         categoryController.categoryList[index].name.substring(0,5).toLowerCase()!="الاشت"
-                      )
-                      return Container()
-                      */
+                   
                       if(
                      categoryController.categoryList[index].id!=4)
                      return Container(); else
@@ -407,52 +403,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],),
                         )
                       );
-                      /*Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 1),
-                        child: InkWell(
-                          onTap: () {
-
-Get.toNamed(RouteHelper.getCategoryProductRoute(
-                            categoryController.categoryList[index],
-                          ));
-                          } ,
-                          child: SizedBox(
-                            width: 60,
-                            child: Column(children: [
-                              Container(
-                                height: 50, width: 50,
-                                margin: EdgeInsets.only(
-                                  left: index == 0 ? 0 : Dimensions.PADDING_SIZE_EXTRA_SMALL,
-                                  right: Dimensions.PADDING_SIZE_EXTRA_SMALL,
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(Dimensions.RADIUS_SMALL),
-                                  child: CustomImage(
-                                    image: '${Get.find<SplashController>().configModel.baseUrls.categoryImageUrl}/${categoryController.categoryList[index].image}',
-                                   width: MediaQuery.of(context).size.width, fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_SMALL),
-
-                              Padding(
-                                padding: EdgeInsets.only(right: index == 0 ? Dimensions.PADDING_SIZE_EXTRA_SMALL : 0),
-                                child: Text(
-                                  categoryController.categoryList[index].name,
-                                  style: robotoMedium.copyWith(fontSize: 11),
-                                  maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.center,
-                                ),
-                              ),
-
-                            ]),
-                          ),
-                        ),
-                      );*/
+                      
                     },
                   ) : CategoryShimmer(categoryController: categoryController),
                 );
 
-                                  }),
+                                  }),*/
                                   CategoryView(),
                                   _configModel.popularRestaurant == 1
                                       ? PopularRestaurantView(isPopular: true)
