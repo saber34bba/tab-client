@@ -201,20 +201,20 @@ class _SubscriptionCart extends State<SubscriptionCart> {
                                           subscriptionsModelView
                         .subscriptionlist[subscriptionsModelView.index].des_ar.length>100?
                                       subscriptionsModelView
-                        .subscriptionlist[subscriptionsModelView.index].des_ar.substring(0,100)+"...":
+                        .subscriptionlist[subscriptionsModelView.index].des_ar:
                                         subscriptionsModelView
                         .subscriptionlist[subscriptionsModelView.index].des_ar: 
                                            Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
                                          subscriptionsModelView
                         .subscriptionlist[subscriptionsModelView.index].des_en.length>100?
                                         subscriptionsModelView
-                        .subscriptionlist[subscriptionsModelView.index].des_en.substring(0,100)+"...":
+                        .subscriptionlist[subscriptionsModelView.index].des_en:
                                       subscriptionsModelView
                         .subscriptionlist[subscriptionsModelView.index].des_en:
                                           subscriptionsModelView
                         .subscriptionlist[subscriptionsModelView.index].des_fr.length>100?
                                        subscriptionsModelView
-                        .subscriptionlist[subscriptionsModelView.index].des_fr.substring(0,100)+"...":
+                        .subscriptionlist[subscriptionsModelView.index].des_fr:
                                      subscriptionsModelView
                         .subscriptionlist[subscriptionsModelView.index].des_fr
                    ,
@@ -953,45 +953,50 @@ Widget foodListWidget(){
                 child: Row(
                   children: [
                     Container(
+                      
                       constraints: BoxConstraints(maxWidth: width / 2),
                       child:   Get.find<ApiClient>().getHeader()["X-localization"]=="fr"||
                               Get.find<ApiClient>().getHeader()["X-localization"]=="en"? Row(children: [
-                        Expanded(
-                            child:
-                            
-                           Row(children: [
-                          Flexible(
-                            child: Text(
-                              subscriptionsModelView
-                                  .my_subscriptionlist[
-                                      subscriptionsModelView.index]
-                                  .productListModel[i]
-                                  .name,
-                              overflow: TextOverflow.clip,
-                            ),
-                          ),
-                          SizedBox(width: 5),
-                          Row(
-                            children: [
-                              Text(
-                                "remaining quantity".tr,
-                                style: robotoBold.copyWith(
-                                    fontWeight: FontWeight.w400,
-                                    color: Theme.of(context).disabledColor),
-                                overflow: TextOverflow.clip,
-                              ),
-                              Text(
-                                subscriptionPresenter.getQuantity(
-                                    context, i, j),
-                                style: robotoBold.copyWith(
-                                    fontWeight: FontWeight.w400,
-                                    color: Theme.of(context).disabledColor),
-                                overflow: TextOverflow.clip,
-                              ),
-                            ],
-                          )
-                        ]))
-                      ]):
+                                               Flexible(
+                                                     child: Text(
+                                                       subscriptionsModelView
+                               .my_subscriptionlist[
+                                   subscriptionsModelView.index]
+                               .productListModel[i]
+                               .name,
+                                                       overflow: TextOverflow.clip,
+                                                     ),
+                                                      ),
+                                                      SizedBox(width: 50),
+                                                    Container(
+                                                        child: Row(
+                                                          children: [
+                                                                                      
+                                                                                    Text(
+                                                                                      "remaining quantity".tr,
+                                                                                      style: robotoBold.copyWith(
+                                                                                          fontWeight: FontWeight.w400,
+                                                                                          color: Theme.of(context).disabledColor),
+                                                                                      overflow: TextOverflow.clip,
+                                                                                    ),
+                                                                                    Text(
+                                                                                      subscriptionPresenter.getQuantity(
+                                                                                          context, i, j),
+                                                                                      style: robotoBold.copyWith(
+                                                                                          fontWeight: FontWeight.w400,
+                                                                                          color: Theme.of(context).disabledColor),
+                                                                                      overflow: TextOverflow.clip,
+                                                                                    ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      
+                                                      Row(children: [
+                                                     
+                                                    
+                                                    
+                                                    ])
+                                                  ]):
                        Row(children: [
                         Expanded(
                             child:

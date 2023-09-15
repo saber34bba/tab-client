@@ -359,7 +359,9 @@ print("----${googleSignInAuthentication.accessToken}");*/
 
     }
   },
-  child: Image.asset("assets/image/google.png",width: 30)),
+  child: Container(
+    padding: EdgeInsets.all(10),
+    child: Image.asset("assets/image/google.png",width: 30))),
 SizedBox(width:50),
 GestureDetector(
   onTap: () async {
@@ -377,7 +379,11 @@ GestureDetector(
   }
     }  
     },
-  child: Image.asset("assets/image/apple.png",width: 30)),
+  child: Ink(
+    padding: EdgeInsets.all(10),
+    decoration:BoxDecoration(color:Colors.black,borderRadius:BorderRadius.circular(16)),
+    child: Image.asset("assets/image/apple.png",width: 30,color:Colors.white)),
+    ),
 /*SizedBox(width:50),
 GestureDetector(
   onTap: () async {

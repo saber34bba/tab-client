@@ -80,7 +80,9 @@ SubscriptionPresenter subscriptionPresenter;
                 
                 widget.showAppbar? 
                 subscriptionsModelView.loading  &&
-                !subscriptionsModelView.subscriptionlist.isEmpty?
+                !subscriptionsModelView.subscriptionlist.isEmpty
+                && 
+                !subscriptionsModelView.loading?
                   SingleChildScrollView(
                       child: Column(children: [
                         SizedBox(height:30),
@@ -96,6 +98,7 @@ SubscriptionPresenter subscriptionPresenter;
                   subscriptionsModelView.my_subscriptionlist.length>0? Container(
                     height:MediaQuery.of(context).size.height,
                     child: my_subscriptionsListView()):
+                    subscriptionsModelView.loading?
                   SingleChildScrollView(
                     child: Column(children: [
                                   
@@ -111,7 +114,7 @@ SubscriptionPresenter subscriptionPresenter;
                   
                       Container(height: 100,),
                                   ]),
-                  ),
+                  ):Container(),
               ),
             ),
           ),
@@ -260,9 +263,8 @@ Widget mobileSubscriptionList(){
                                         Container(
                                         width: width*0.5,
                                         child: Text(
-                                          
-                                            Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
-                                         subscriptionModel.des_ar.length>100?
+                                        Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                                        subscriptionModel.des_ar.length>100?
                                         subscriptionModel.des_ar.substring(0,100)+"...":
                                         subscriptionModel.des_ar: 
                                            Get.find<ApiClient>().getHeader()["X-localization"]=="en"?
@@ -570,7 +572,7 @@ Widget my_subscriptionsListView(){
                    
                               SizedBox(height: 2),
                       Container(
-                      width: width*0.4,
+                      width: width*0.5,
                       child: Text(
                           Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
                                          subscriptionModel.des_ar.length>100?
@@ -584,7 +586,8 @@ Widget my_subscriptionsListView(){
                                         subscriptionModel.des_fr.substring(0,100)+"...":
                                         subscriptionModel.des_fr,
                       overflow: TextOverflow.clip,
-                       textAlign: TextAlign.justify,
+                       textAlign: Get.find<ApiClient>().getHeader()["X-localization"]=="ar"?
+                        TextAlign.right: TextAlign.left,
                       style: robotoMedium.copyWith(
                       color: Colors.grey,
                       fontSize: Dimensions.fontSizeSmall),

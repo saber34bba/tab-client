@@ -65,7 +65,7 @@ int ordered=0;
 
   }
 
- print("-----model is ${map}");
+ 
     return SubscriptionModel(
       id: map["id"],
       abonnement_stockeid: _abonnement_stockeid,

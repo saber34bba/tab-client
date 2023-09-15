@@ -53,6 +53,7 @@ class SubscriptionsModelView extends ChangeNotifier {
           
           if (responseData[i]["food"].length > 0) {
             for (int j = 0; j < responseData[i]["food"].length; j++) {
+             
               subscriptionModel.productList.add({
                 "id":
                     int.parse(responseData[i]["food"][j]["food_id"].toString()),
@@ -120,9 +121,7 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
     }else{
       loading=false;
       notifyListeners();
-       showCustomSnackBar(
-                                                      'you_are_not_logged_in'
-                                                          .tr);
+       showCustomSnackBar('you_are_not_logged_in'.tr);
     }
   }
 
