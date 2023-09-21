@@ -80,6 +80,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
         appBar: ResponsiveHelper.isDesktop(context) ? WebMenuBar() : null,
         backgroundColor: Theme.of(context).cardColor,
@@ -299,7 +300,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               // if(false)
-                                              CustomButton(
+                                              /*CustomButton(
                                                   buttonText: 'subscription'.tr,
                                                   color : Colors.green,
                                                   width: 120,
@@ -307,7 +308,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                                                   onPressed: () => Get.toNamed(
                                                       RouteHelper
                                                           .getSubscriptionsRoute(_restaurant.id))),
-                                              Expanded(
+                                              */Expanded(
                                                 child: ListView.builder(
                                                   scrollDirection:
                                                       Axis.horizontal,

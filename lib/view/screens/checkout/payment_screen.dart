@@ -84,7 +84,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       onWillPop: () => _exitApp(),
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
-        appBar: CustomAppBar(title: 'payment'.tr, onBackPressed: () => _exitApp()),
+        appBar: CustomAppBar(title:'payment'.tr, onBackPressed: () => _exitApp()),
         body: Center(
           child: Container(
             width: Dimensions.WEB_MAX_WIDTH,

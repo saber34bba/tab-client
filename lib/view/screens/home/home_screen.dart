@@ -338,7 +338,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: InkWell(
         child:  Row(children: [
 
-     Expanded(child: CustomButton(buttonText: 'service_traiteur'.tr, height: 50, onPressed: (){
+     Expanded(child: CustomButton(buttonText: 'subscription'.tr, height: 50, onPressed: (){
        Navigator.push( context,MaterialPageRoute<void>( 
                            builder: (BuildContext context) => Subscription_view(showAppbar: true), ),);
      }))

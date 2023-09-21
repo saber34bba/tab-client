@@ -130,6 +130,51 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:391440289487:android:15dac5a2ff85114e3e31ba",
+        "android_client_info": {
+          "package_name": "com.theafricanbasket.tab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391440289487-d2ievbnku0h3v9s8d9h6r26s72gj0qnp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theafricanbasket.tab",
+            "certificate_hash": "d7b3bd06501eef45ff01e2cdb390ee5b3b719c6e"
+          }
+        },
+        {
+          "client_id": "391440289487-2bdldsgfpca17485k1vnpdnhifevjaun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBs-d3KUt9WDSaZqqQ1wDEwSv-5EfkzIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391440289487-2bdldsgfpca17485k1vnpdnhifevjaun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "391440289487-6kahad9i3vf80ed0v78ejel5n9ian4sf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.theafricanbasketpartners.rn",
+                "app_store_id": "1641405911"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:391440289487:android:656d32f6a3b3c3233e31ba",
         "android_client_info": {
           "package_name": "com.theafricanbasketdrivers"

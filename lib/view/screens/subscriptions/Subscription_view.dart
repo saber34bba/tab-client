@@ -79,10 +79,8 @@ SubscriptionPresenter subscriptionPresenter;
                 
                 
                 widget.showAppbar? 
-                subscriptionsModelView.loading  &&
-                !subscriptionsModelView.subscriptionlist.isEmpty
-                && 
-                !subscriptionsModelView.loading?
+                subscriptionsModelView.loading 
+                ?
                   SingleChildScrollView(
                       child: Column(children: [
                         SizedBox(height:30),
@@ -95,6 +93,7 @@ SubscriptionPresenter subscriptionPresenter;
                 subscriptionsModelView.subscriptionlist.length>0? subscriptionsListView():
                 
                   Container():
+                 !subscriptionsModelView.loading &&
                   subscriptionsModelView.my_subscriptionlist.length>0? Container(
                     height:MediaQuery.of(context).size.height,
                     child: my_subscriptionsListView()):

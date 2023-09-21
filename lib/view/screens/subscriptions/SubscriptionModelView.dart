@@ -110,8 +110,7 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
             AddSubscription(subscriptionModel);
           }else{
           }
-          loading = false;
-          notifyListeners();
+         
         }
       } else {
         loading = false;
@@ -123,10 +122,14 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
       notifyListeners();
        showCustomSnackBar('you_are_not_logged_in'.tr);
     }
+     loading = false;
+          notifyListeners();
   }
 
   getMy_Subscriptions(bool reload) async {
     if (my_subscriptionlist.isNotEmpty && !reload) {
+      loading=false;
+      notifyListeners();
       return;
     }
     loading = true;
@@ -143,9 +146,10 @@ responseData[i]["food"][j]["food_detail"]['choice_options']=[];
          if (_data.statusCode == 200 || _data.statusCode == 201) {
       List<dynamic> responseData = json.decode(_data.body);
       if (responseData.length > 0) {
-          
+                   loading=false;
+         notifyListeners();
         for (int i = 0; i < responseData.length; i++) {
-         
+
           SubscriptionModel subscriptionModel =
               SubscriptionModel.fromJson(responseData[i]);
           subscriptionModel.productList = [];
